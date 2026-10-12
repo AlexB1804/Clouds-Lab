@@ -1,0 +1,24 @@
+{
+  "phase": "0",
+  "environment": {
+    "cloud_shell": true
+  },
+  "python": {
+    "version": "3.12.3",
+    "ok": true
+  },
+  "gcloud": {
+    "account": "alexandre.bomati@eurecom.fr",
+    "project": "clouds-lab-511413",
+    "error": null
+  },
+  "docker": {
+    "version": "Docker version 29.8.2, build 7fc2dff",
+    "present": true
+  },
+  "git": {
+    "remote": "https://github.com/AlexB1804/Clouds-Lab.git",
+    "is_github": true,
+    "slug": "AlexB1804/Clouds-Lab"
+  }
+}
