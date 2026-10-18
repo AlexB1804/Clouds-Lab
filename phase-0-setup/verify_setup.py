@@ -51,6 +51,24 @@ def parse_gcloud_config(raw: str) -> dict:
     # TODO: parse `raw` as JSON and return {"account": ..., "project": ...}
     #       from the "core" section. Return empty strings if raw is empty or a
     #       field is missing.
+    if not raw or not raw.strip():
+        return {"account": "", "project": ""}
+    
+    try:
+        data = json.loads(raw)
+        if not isinstance(data, dict):
+            return {"account": "", "project": ""}
+        
+        core = data.get("core", {})
+        if not isinstance(core, dict):
+            core = {}
+            
+        account = str(core.get("account", ""))
+        project = str(core.get("project", ""))
+        return {"account": account, "project": project}
+    except (json.JSONDecodeError, TypeError):
+        return {"account": "", "project": ""}
+    
     raise NotImplementedError("Phase 0: implement parse_gcloud_config()")
 
 
@@ -67,8 +85,36 @@ def parse_repo_slug(remote_url: str) -> str:
     Args:
         remote_url: output of ``git remote get-url origin`` (may be empty).
     """
-    # TODO: return "owner/repo" for both the HTTPS and SSH forms shown above.
-    #       Strip any trailing ".git". Return "" if not a github.com URL.
+    if not remote_url or not remote_url.strip():
+        return ""
+    
+    url = remote_url.strip()
+    
+    if "github.com" not in url:
+        return ""
+    
+    if url.endswith(".git"):
+        url = url[:-4]
+        
+    # Gérer le format HTTPS et SSH sans utiliser 're'
+    if "github.com/" in url:
+        parts = url.split("github.com/")
+    elif "github.com:" in url:
+        parts = url.split("github.com:")
+    else:
+        return ""
+        
+    if len(parts) < 2:
+        return ""
+        
+    path = parts[1]
+    # S'assurer qu'on a bien owner/repo
+    segments = [s for s in path.split("/") if s]
+    if len(segments) >= 2:
+        return f"{segments[-2]}/{segments[-1]}"
+        
+    return ""
+    
     raise NotImplementedError("Phase 0: implement parse_repo_slug()")
 
 
