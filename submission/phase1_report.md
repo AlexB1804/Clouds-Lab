@@ -68,3 +68,5 @@ The `gcloud run services list` output reveals that Cloud Functions Gen 2 service
 
 The primary difference lies in the developer workflow and build path: Cloud Run requires the developer to explicitly write a `Dockerfile`, build the image, and push it to Artifact Registry. In contrast, Cloud Functions accepts raw source code (`main.py`) directly and leverages Google Cloud buildpacks to automatically generate and manage the container image, abstracting away all containerization steps.
 <!--/answer-->
+EOF
+
