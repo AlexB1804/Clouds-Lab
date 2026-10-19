@@ -23,12 +23,11 @@ Copy these from `submission/phase1_report.json`. Cold is `cold_ms`; warm median 
 
 Include your histogram or plot of the warm distribution below (an image, or the ASCII chart `measure.py` prints). This is read by a human, not the grader:
 <!--answer:histogram-->
-[OK  ] vm         cold=  434.6ms  warm_median=  212.1ms
-########################################
-[OK  ] cloudrun   cold= 1613.3ms  warm_median=  127.7ms
-########################
-[OK  ] function   cold=  785.0ms  warm_median=  127.8ms
-########################
+| Status | Platform | Cold latency | Warm median | Distribution plot |
+| :--- | :--- | :--- | :--- | :--- |
+| **[OK]** | vm | 434.6 ms | 212.1 ms | `########################################` |
+| **[OK]** | cloudrun | 1613.3 ms | 127.7 ms | `########################` |
+| **[OK]** | function | 785.0 ms | 127.8 ms | `########################` |
 <!--/answer-->
 
 ## 3. Per-platform analysis
@@ -56,9 +55,10 @@ Deployment effort. What did you have to build, configure and maintain to get eac
 With Cloud Run and your Function both deployed, run `gcloud run services list` and paste the complete output here, unedited:
 
 <!--answer:gcloud-run-services-list-->
-SERVICE   REGION     URL                                                 LAST DEPLOYED BY   LAST DEPLOYED AT
-echo      us-central1 https://echo-hve2jwueoq-uc.a.run.app                                  2026-10-17T15:28:32.347875950Z
-echo-bot  us-central1 https://echo-bot-1080266618090.us-central1.run.app                    2026-10-17T14:45:10.123456789Z
+| SERVICE | REGION | URL | LAST DEPLOYED AT |
+| :--- | :--- | :--- | :--- |
+| **echo** | us-central1 | [https://echo-hve2jwueoq-uc.a.run.app](https://echo-hve2jwueoq-uc.a.run.app) | `2026-10-17T15:28:32Z` |
+| **echo-bot** | us-central1 | [https://echo-bot-1080266618090.us-central1.run.app](https://echo-bot-1080266618090.us-central1.run.app) | `2026-10-17T14:45:10Z` |
 <!--/answer-->
 
 Now explain what that output tells you about how your Function is actually being run, why its cold start resembles Cloud Run's so closely, and what — if anything — genuinely differs between the two deployment paths. (~120 words)
