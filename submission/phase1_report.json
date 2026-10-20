@@ -5,7 +5,7 @@
   },
   "platforms": {
     "vm": {
-      "url": "http://35.222.54.132:8080",
+      "url": "http://34.66.83.166:8080",
       "echo_ok": true,
       "status": 200,
       "cold_ms": 434.6,
