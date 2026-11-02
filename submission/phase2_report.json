@@ -1,0 +1,30 @@
+{
+  "phase": "2",
+  "environment": {
+    "colab": true
+  },
+  "attention": {
+    "naive_ms": 485.433,
+    "vectorized_ms": 4.873,
+    "speedup": 99.62
+  },
+  "threads": {
+    "1": 2351.423,
+    "2": 2085.009,
+    "4": 2202.058,
+    "8": 2280.533
+  },
+  "devices": {
+    "cpu_ms": 408974.5,
+    "gpu_ms": 12821.0
+  },
+  "training": {
+    "steps": 2000,
+    "final_loss": 1.4901,
+    "param_count": 4935680
+  },
+  "sample": "\nHe formed.\n\nMONTES:\nHave heady: you have noted me.\n\nSEBASTIAN:\nLet yiur so nightly.\n\nFirst Servior:\nBut goes it is yours! thousamen dispart!\n\nOMAULET:\nI witch, countened to shell a the have been,\nagai",
+  "model": {
+    "gcs_url": "https://storage.googleapis.com/clouds-lab-511413-eurecomgpt/model.safetensors"
+  }
+}
