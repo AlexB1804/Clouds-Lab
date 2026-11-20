@@ -68,5 +68,5 @@ Retries are safe because each map task writes deterministically to a fixed GCS o
 **The chaos run.**
 
 <!--answer:chaos_observations-->
-With `--chaos 0.3`, the execution log and Logs Explorer showed 5 injected HTTP 500 transient failures (`ChaosError` / simulated worker failure) on individual map/reduce invocations, each automatically caught and retried by Cloud Workflows with exponential backoff. Despite those 5 retries, the workflow reached `SUCCEEDED` and produced `wordcount.json` with top terms identical to the local reference.
+With `--chaos 0.3`, the execution log and Logs Explorer showed 5 injected HTTP 503 transient failures (simulated worker unavailability) on individual map/reduce invocations, each automatically caught and retried by Cloud Workflows with exponential backoff. Despite those 5 retries, the workflow reached `SUCCEEDED` and produced `wordcount.json` with top terms identical to the local reference.
 <!--/answer-->
